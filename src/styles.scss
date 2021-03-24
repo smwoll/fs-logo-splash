@@ -55,11 +55,11 @@ body {
     0% {
       transform: translate(-50%, -70%);
     }
-    10% {
+    20% {
       transform: translate(-50%, -50%);
     }
     100% {
-      transform: scale(100);
+      transform: scale(20);
     }
   }
 
@@ -123,7 +123,7 @@ body {
 // include the animations
 
 .splash .logo::after {
-  animation: splash-droplet ease 8s both;
+  animation: splash-droplet ease 4s both;
 }
 .logo {
   animation: logo-entry 2s both;
