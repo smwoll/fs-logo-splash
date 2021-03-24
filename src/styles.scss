@@ -1,0 +1,176 @@
+$primary-color: white;
+$bg: black;
+h1 {
+  color: $primary-color;
+  background-color: $bg;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+// styling for splash logo and animation
+
+.splash {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: black;
+  overflow: hidden;
+  overflow: clip;
+
+  .logo {
+    position: relative;
+    width: 50vw;
+    height: 50vw;
+    z-index: 4;
+    svg {
+      max-width: 100%;
+      max-height: 100%;
+      z-index: 1;
+    }
+    &::after {
+      content: "";
+      border-radius: 50%;
+      width: 60vw;
+      height: 60vw;
+      background-color: navy;
+      z-index: 0;
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+  }
+}
+
+// animate the after element
+// wrap these in a prefers reduced motion query -- they will only appear IF the user has no preference
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes splash-droplet {
+    0% {
+      transform: translate(-50%, -70%);
+    }
+    10% {
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      transform: scale(100);
+    }
+  }
+
+  @keyframes boombox {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(1.2);
+    }
+    40% {
+      transform: scale(0.9);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes grill-entry {
+    0% {
+      transform: rotate(360deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    70% {
+      transform: scale(1.1) rotate(0deg);
+    }
+    75% {
+      transform: scale(1) rotate(0deg);
+    }
+    80% {
+      transform: scale(1.2) rotate(0deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes logo-entry {
+    0% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+// include the animations
+
+.splash .logo::after {
+  animation: splash-droplet ease 8s both;
+}
+.logo {
+  animation: logo-entry 2s both;
+}
+// target the svg and its components for styling
+
+.splash svg {
+  animation: fade-in 1.2s both;
+  transition: all 1s;
+  overflow: visible;
+  .radio {
+    overflow: visible;
+    transform-origin: center;
+
+    #Grill {
+      transform-origin: center;
+      // animation: boombox 2s both infinite;
+      animation: grill-entry 1s both;
+      transform: rotate(50deg);
+      opacity: 1;
+    }
+
+    #Button {
+      transform: scale(1);
+      stroke-dasharray: 100%;
+      stroke-dashoffset: 500px;
+    }
+  }
+}
+
+// ghost logo styling for reference
+.ghost-logo {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  z-index: 4;
+  opacity: 0;
+  svg {
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 9;
+    opacity: 0.4;
+    * {
+      fill: red;
+    }
+  }
+}
