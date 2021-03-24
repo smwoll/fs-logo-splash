@@ -1,4 +1,7 @@
 $bg: #1a2444;
+html {
+  background-color: #111934;
+}
 
 body {
   padding: 0;
@@ -15,7 +18,6 @@ body {
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: black;
   overflow: hidden;
   overflow: clip;
 
