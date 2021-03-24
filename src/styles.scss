@@ -80,10 +80,10 @@ body {
   }
   @keyframes grill-entry {
     0% {
-      transform: rotate(360deg);
+      transform: scale(0.3) rotate(360deg);
     }
     60% {
-      transform: rotate(0deg);
+      transform: scale(0.9) rotate(0deg);
     }
     70% {
       transform: scale(1.1) rotate(0deg);
