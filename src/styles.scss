@@ -23,8 +23,8 @@ body {
 
   .logo {
     position: relative;
-    width: 50vw;
-    height: 50vw;
+    width: clamp(200px, 50vw, 600px);
+    height: clamp(200px, 50vw, 600px);
     z-index: 4;
     svg {
       max-width: 100%;
@@ -34,8 +34,8 @@ body {
     &::after {
       content: "";
       border-radius: 50%;
-      width: 60vw;
-      height: 60vw;
+      width: clamp(200px, 60vw, 650px);
+      height: clamp(200px, 60vw, 650px);
       background-color: #1a2444;
       z-index: 0;
       position: absolute;
